@@ -1,0 +1,37 @@
+[0m[[0minfo[0m] [0mPackaging /root/xueyu/kafka-http-master/target/scala-2.9.2/kafkahttp_2.9.2-0.0.1.jar ...[0m
+[0m[[0mdebug[0m] [0mInput file mappings:[0m
+[0m[[0mdebug[0m] [0m	com/rackspace/kafka/http/RestServer$$anonfun$main$1.class[0m
+[0m[[0mdebug[0m] [0m	  /root/xueyu/kafka-http-master/target/scala-2.9.2/classes/com/rackspace/kafka/http/RestServer$$anonfun$main$1.class[0m
+[0m[[0mdebug[0m] [0m	com/rackspace/kafka/http/ConsumerServlet$$anonfun$liftedTree1$1$1.class[0m
+[0m[[0mdebug[0m] [0m	  /root/xueyu/kafka-http-master/target/scala-2.9.2/classes/com/rackspace/kafka/http/ConsumerServlet$$anonfun$liftedTree1$1$1.class[0m
+[0m[[0mdebug[0m] [0m	com[0m
+[0m[[0mdebug[0m] [0m	  /root/xueyu/kafka-http-master/target/scala-2.9.2/classes/com[0m
+[0m[[0mdebug[0m] [0m	com/rackspace/kafka/http/RestServer$.class[0m
+[0m[[0mdebug[0m] [0m	  /root/xueyu/kafka-http-master/target/scala-2.9.2/classes/com/rackspace/kafka/http/RestServer$.class[0m
+[0m[[0mdebug[0m] [0m	com/rackspace/kafka/http/RestServer.class[0m
+[0m[[0mdebug[0m] [0m	  /root/xueyu/kafka-http-master/target/scala-2.9.2/classes/com/rackspace/kafka/http/RestServer.class[0m
+[0m[[0mdebug[0m] [0m	com/rackspace/kafka/http/ProducerServlet$$anonfun$getObjectForGet$1.class[0m
+[0m[[0mdebug[0m] [0m	  /root/xueyu/kafka-http-master/target/scala-2.9.2/classes/com/rackspace/kafka/http/ProducerServlet$$anonfun$getObjectForGet$1.class[0m
+[0m[[0mdebug[0m] [0m	com/rackspace/kafka/http/ReplyFormatter.class[0m
+[0m[[0mdebug[0m] [0m	  /root/xueyu/kafka-http-master/target/scala-2.9.2/classes/com/rackspace/kafka/http/ReplyFormatter.class[0m
+[0m[[0mdebug[0m] [0m	com/rackspace[0m
+[0m[[0mdebug[0m] [0m	  /root/xueyu/kafka-http-master/target/scala-2.9.2/classes/com/rackspace[0m
+[0m[[0mdebug[0m] [0m	com/rackspace/kafka/http/ServletErrorHandler.class[0m
+[0m[[0mdebug[0m] [0m	  /root/xueyu/kafka-http-master/target/scala-2.9.2/classes/com/rackspace/kafka/http/ServletErrorHandler.class[0m
+[0m[[0mdebug[0m] [0m	com/rackspace/kafka/http/ProducerServlet.class[0m
+[0m[[0mdebug[0m] [0m	  /root/xueyu/kafka-http-master/target/scala-2.9.2/classes/com/rackspace/kafka/http/ProducerServlet.class[0m
+[0m[[0mdebug[0m] [0m	com/rackspace/kafka/http/ProducerServlet$$anonfun$getObject$1.class[0m
+[0m[[0mdebug[0m] [0m	  /root/xueyu/kafka-http-master/target/scala-2.9.2/classes/com/rackspace/kafka/http/ProducerServlet$$anonfun$getObject$1.class[0m
+[0m[[0mdebug[0m] [0m	com/rackspace/kafka[0m
+[0m[[0mdebug[0m] [0m	  /root/xueyu/kafka-http-master/target/scala-2.9.2/classes/com/rackspace/kafka[0m
+[0m[[0mdebug[0m] [0m	com/rackspace/kafka/http/Configurator.class[0m
+[0m[[0mdebug[0m] [0m	  /root/xueyu/kafka-http-master/target/scala-2.9.2/classes/com/rackspace/kafka/http/Configurator.class[0m
+[0m[[0mdebug[0m] [0m	com/rackspace/kafka/http/ReplyFormatter$class.class[0m
+[0m[[0mdebug[0m] [0m	  /root/xueyu/kafka-http-master/target/scala-2.9.2/classes/com/rackspace/kafka/http/ReplyFormatter$class.class[0m
+[0m[[0mdebug[0m] [0m	com/rackspace/kafka/http[0m
+[0m[[0mdebug[0m] [0m	  /root/xueyu/kafka-http-master/target/scala-2.9.2/classes/com/rackspace/kafka/http[0m
+[0m[[0mdebug[0m] [0m	com/rackspace/kafka/http/Configurator$.class[0m
+[0m[[0mdebug[0m] [0m	  /root/xueyu/kafka-http-master/target/scala-2.9.2/classes/com/rackspace/kafka/http/Configurator$.class[0m
+[0m[[0mdebug[0m] [0m	com/rackspace/kafka/http/ConsumerServlet.class[0m
+[0m[[0mdebug[0m] [0m	  /root/xueyu/kafka-http-master/target/scala-2.9.2/classes/com/rackspace/kafka/http/ConsumerServlet.class[0m
+[0m[[0minfo[0m] [0mDone packaging.[0m

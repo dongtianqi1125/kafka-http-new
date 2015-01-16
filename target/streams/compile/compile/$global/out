@@ -1,0 +1,38 @@
+[0m[[0mdebug[0m] [0m[0m
+[0m[[0mdebug[0m] [0mInitial source changes: [0m
+[0m[[0mdebug[0m] [0m	removed:Set()[0m
+[0m[[0mdebug[0m] [0m	added: Set()[0m
+[0m[[0mdebug[0m] [0m	modified: Set(/root/xueyu/kafka-http-master/src/main/scala/com/rackspace/kafka/http/ProducerServlet.scala)[0m
+[0m[[0mdebug[0m] [0mRemoved products: Set()[0m
+[0m[[0mdebug[0m] [0mModified external sources: Set()[0m
+[0m[[0mdebug[0m] [0mModified binary dependencies: Set()[0m
+[0m[[0mdebug[0m] [0mInitial directly invalidated sources: Set(/root/xueyu/kafka-http-master/src/main/scala/com/rackspace/kafka/http/ProducerServlet.scala)[0m
+[0m[[0mdebug[0m] [0m[0m
+[0m[[0mdebug[0m] [0mSources indirectly invalidated by:[0m
+[0m[[0mdebug[0m] [0m	product: Set()[0m
+[0m[[0mdebug[0m] [0m	binary dep: Set()[0m
+[0m[[0mdebug[0m] [0m	external source: Set()[0m
+[0m[[0mdebug[0m] [0mAll initially invalidated sources: Set(/root/xueyu/kafka-http-master/src/main/scala/com/rackspace/kafka/http/ProducerServlet.scala)[0m
+[0m[[0minfo[0m] [0mCompiling 1 Scala source to /root/xueyu/kafka-http-master/target/scala-2.9.2/classes...[0m
+[0m[[0mdebug[0m] [0mGetting compiler-interface from component compiler for Scala 2.9.2[0m
+[0m[[0mdebug[0m] [0mGetting compiler-interface from component compiler for Scala 2.9.2[0m
+[0m[[0mdebug[0m] [0mRunning cached compiler 51a52fa7, interfacing (CompilerInterface) with Scala compiler version 2.9.2[0m
+[0m[[0mdebug[0m] [0mCalling Scala compiler with arguments  (CompilerInterface):[0m
+[0m[[0mdebug[0m] [0m	-deprecation[0m
+[0m[[0mdebug[0m] [0m	-unchecked[0m
+[0m[[0mdebug[0m] [0m	-g:none[0m
+[0m[[0mdebug[0m] [0m	-bootclasspath[0m
+[0m[[0mdebug[0m] [0m	/opt/jdk1.7.0_17/jre/lib/resources.jar:/opt/jdk1.7.0_17/jre/lib/rt.jar:/opt/jdk1.7.0_17/jre/lib/sunrsasign.jar:/opt/jdk1.7.0_17/jre/lib/jsse.jar:/opt/jdk1.7.0_17/jre/lib/jce.jar:/opt/jdk1.7.0_17/jre/lib/charsets.jar:/opt/jdk1.7.0_17/jre/lib/jfr.jar:/opt/jdk1.7.0_17/jre/classes:/root/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.9.2.jar[0m
+[0m[[0mdebug[0m] [0m	-classpath[0m
+[0m[[0mdebug[0m] [0m	/root/xueyu/kafka-http-master/target/scala-2.9.2/classes:/root/xueyu/kafka-http-master/lib/sbt-launch.jar:/root/.ivy2/cache/org.apache.kafka/kafka_2.9.2/jars/kafka_2.9.2-0.8.0.jar:/root/.ivy2/cache/org.apache.zookeeper/zookeeper/jars/zookeeper-3.3.4.jar:/root/.ivy2/cache/log4j/log4j/jars/log4j-1.2.15.jar:/root/.ivy2/cache/net.sf.jopt-simple/jopt-simple/jars/jopt-simple-3.2.jar:/root/.ivy2/cache/org.slf4j/slf4j-simple/jars/slf4j-simple-1.6.4.jar:/root/.ivy2/cache/org.scala-lang/scala-compiler/jars/scala-compiler-2.9.2.jar:/root/.ivy2/cache/com.101tec/zkclient/jars/zkclient-0.3.jar:/root/.ivy2/cache/org.xerial.snappy/snappy-java/bundles/snappy-java-1.0.4.1.jar:/root/.ivy2/cache/com.yammer.metrics/metrics-core/jars/metrics-core-2.2.0.jar:/root/.ivy2/cache/org.slf4j/slf4j-api/jars/slf4j-api-1.7.2.jar:/root/.ivy2/cache/com.yammer.metrics/metrics-annotation/jars/metrics-annotation-2.2.0.jar:/root/.ivy2/cache/junit/junit/jars/junit-3.8.1.jar:/root/.ivy2/cache/com.timgroup/java-statsd-client/jars/java-statsd-client-2.0.0.jar:/root/.ivy2/cache/org.eclipse.jetty/jetty-server/jars/jetty-server-8.1.14.v20131031.jar:/root/.ivy2/cache/org.eclipse.jetty.orbit/javax.servlet/orbits/javax.servlet-3.0.0.v201112011016.jar:/root/.ivy2/cache/org.eclipse.jetty/jetty-continuation/jars/jetty-continuation-8.1.14.v20131031.jar:/root/.ivy2/cache/org.eclipse.jetty/jetty-http/jars/jetty-http-8.1.14.v20131031.jar:/root/.ivy2/cache/org.eclipse.jetty/jetty-io/jars/jetty-io-8.1.14.v20131031.jar:/root/.ivy2/cache/org.eclipse.jetty/jetty-util/jars/jetty-util-8.1.14.v20131031.jar:/root/.ivy2/cache/org.eclipse.jetty/jetty-servlet/jars/jetty-servlet-8.1.14.v20131031.jar:/root/.ivy2/cache/org.eclipse.jetty/jetty-security/jars/jetty-security-8.1.14.v20131031.jar:/root/.ivy2/cache/org.mongodb/mongo-java-driver/jars/mongo-java-driver-2.11.3.jar[0m
+[0m[[33mwarn[0m] [0m/root/xueyu/kafka-http-master/src/main/scala/com/rackspace/kafka/http/ProducerServlet.scala:210: method decode in object URLDecoder is deprecated: see corresponding Javadoc for more information.[0m
+[0m[[33mwarn[0m] [0m    val messagesstr = URLDecoder.decode(segments(3))[0m
+[0m[[33mwarn[0m] [0m                                 ^[0m
+[0m[[33mwarn[0m] [0mone warning found[0m
+[0m[[0mdebug[0m] [0mScala compilation took 6.259975871 s[0m
+[0m[[0mdebug[0m] [0mInvalidated by transitive public inheritance: Set()[0m
+[0m[[0mdebug[0m] [0mInvalidated by direct dependency: Set()[0m
+[0m[[0mdebug[0m] [0mNew invalidations:[0m
+[0m[[0mdebug[0m] [0m	Set()[0m
+[0m[[0mdebug[0m] [0mPreviously invalidated, but (transitively) depend on new invalidations:[0m
+[0m[[0mdebug[0m] [0m	Set()[0m
