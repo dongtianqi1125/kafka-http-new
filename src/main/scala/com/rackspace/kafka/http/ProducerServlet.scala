@@ -188,6 +188,36 @@ class ProducerServlet(properties:Properties, reportingProps: Properties) extends
 
   }
 
+  def getObjectForGetSingleMessage(request:HttpServletRequest):MutableList[KeyedMessage[String, String]] = {
+    var topic = getTopicForGet(request)
+    var obj = request.getContentType() match {
+      case "application/json" => getObjectFromJsonForGet(request)
+      case _ => throw new Exception("Unsupported content type: %s".format(request.getContentType()))
+    }
+    var list = new MutableList[KeyedMessage[String, String]]()
+    obj = normalizeValue(obj)
+    val jsonstr = obj.toString()
+    System.out.println("######to key message in single:"+jsonstr)
+    val singlemessage = new KeyedMessage[String, String](topic, "", jsonstr)
+    list += singlemessage
+    list
+  }
+
+  def getObjectForPostSingleMessage(request:HttpServletRequest):MutableList[KeyedMessage[String, String]] = {
+    var topic = getTopicForPost(request)
+    var obj = request.getContentType() match {
+      case "application/json" => getObjectFromJsonForPost(request)
+      case _ => throw new Exception("Unsupported content type: %s".format(request.getContentType()))
+    }
+    var list = new MutableList[KeyedMessage[String, String]]()
+    obj = normalizeValue(obj)
+    val jsonstr = obj.toString()
+    System.out.println("######to key message in single:"+jsonstr)
+    val singlemessage = new KeyedMessage[String, String](topic, "", jsonstr)
+    list += singlemessage
+    list
+  }
+
   def getObjectFromBson(request:HttpServletRequest):BSONObject = {
     return new BasicBSONDecoder().readObject(request.getInputStream())
   }
@@ -204,10 +234,24 @@ class ProducerServlet(properties:Properties, reportingProps: Properties) extends
     System.out.println("#####body string:"+body.toString())
     return JSON.parse(body.toString()).asInstanceOf[BSONObject]
   }
+
+  def getObjectFromJsonForPost(request:HttpServletRequest):BSONObject = {
+    var body = new StringBuilder
+    var reader = request.getReader()
+    var buffer = new Array[Char](4096)
+    var len:Int = 0
+
+    while ({len = reader.read(buffer, 0, buffer.length); len != -1}) {
+      body.appendAll(buffer, 0, len);
+    }
+    System.out.println("#####body string:"+body.toString())
+    return JSON.parse(body.toString()).asInstanceOf[BSONObject]
+  }
  
   def getObjectFromJsonForGet(request:HttpServletRequest):BSONObject = {
-    val segments = request.getRequestURI().split("/")
-    val messagesstr = URLDecoder.decode(segments(3))
+    /*val segments = request.getRequestURI().split("/")
+    val messagesstr = URLDecoder.decode(segments(3))*/
+    val messagesstr = URLDecoder.decode(request.getParameter("data"))
     System.out.println("#####message decode str:" + messagesstr)
     return JSON.parse(messagesstr).asInstanceOf[BSONObject]
   }
@@ -221,36 +265,70 @@ class ProducerServlet(properties:Properties, reportingProps: Properties) extends
   }
 
   def getTopicForGet(request:HttpServletRequest):String = {
-    var segments = request.getRequestURI().split("/")
+    /*var segments = request.getRequestURI().split("/")
     if (segments.length != 4 || segments(1) != "topics") {
       throw new Exception("Please provide topic and messages /topics/<topic>/<messages> to get method")
+    }*/
+
+    val topic = request.getParameter("topic")
+    if (topic == null) {
+      throw new Exception("Please provide topic in query string")
     }
-    return segments(2)
+    return topic
+  }
+
+  def getTopicForPost(request:HttpServletRequest):String = {
+    val topic = request.getParameter("topic")
+    System.out.println("####post topic:"+topic)
+    if (topic == null) {
+      throw new Exception("Please provide topic in query string")
+    }
+    return topic
   }
 
   override def doPost(request:HttpServletRequest, response:HttpServletResponse)
   {
-    var topic = getTopic(request)
-    var messages = getObject(request)
+   try{ 
+    var messages = new MutableList[KeyedMessage[String, String]]()
+    if (request.getParameter("type") == "batch") {
+      messages = getObject(request)
+    } else {
+      messages = getObjectForPostSingleMessage(request)
+    }
 
     val start = System.currentTimeMillis()
-    val data = new KeyedMessage[String, Array[Byte]](topic, "key", new Array[Byte](1))
     producer.send(messages:_*)
     statsd.recordExecutionTime("submitted", (System.currentTimeMillis() - start).toInt)
 
     var obj = new BasicBSONObject()
     obj.append("accepted", "OK")
+    logger.info("""{"accepted": "OK"}""")
     replyWith(obj, request, response)
+   } catch {
+     case e: Exception => {
+       logger.info("""{"error":""" + "\""+e.toString + "\"}")
+       throw e       
+     }
+   }
   }
   
   override def doGet(request:HttpServletRequest, response:HttpServletResponse)
   {
     System.out.println("####process get method")
-    var topic = getTopicForGet(request)
-    var messages = getObjectForGet(request)
+    System.out.println("####pos a:"+request.getQueryString())
+    val parmap = request.getParameterMap()
+    for ((k,v) <- parmap) printf("#####key: %s, value: %s\n", k, v)
+
+    //var topic = getTopicForGet(request)
+    var messages = new MutableList[KeyedMessage[String, String]]()
+    if (request.getParameter("type") == "batch") {
+      messages = getObjectForGet(request)
+    } else {
+      messages = getObjectForGetSingleMessage(request)
+    }
 
     val start = System.currentTimeMillis()
-    val data = new KeyedMessage[String, Array[Byte]](topic, "key", new Array[Byte](1))
+    //val data = new KeyedMessage[String, Array[Byte]](topic, "key", new Array[Byte](1))
     producer.send(messages:_*)
     statsd.recordExecutionTime("submitted", (System.currentTimeMillis() - start).toInt)
 
